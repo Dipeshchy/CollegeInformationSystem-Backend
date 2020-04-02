@@ -1,4 +1,4 @@
-package com.ncit.college.app;
+package com.ncit.college;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -8,9 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = "com.ncit.college")
 @EnableAutoConfiguration
-public class CollegeInformationSystemApplication {
+public class App {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CollegeInformationSystemApplication.class, args);
+		SpringApplication.run(App.class, args);
 	}
 }
