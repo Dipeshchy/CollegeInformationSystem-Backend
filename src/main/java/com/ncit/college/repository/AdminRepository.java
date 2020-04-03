@@ -18,4 +18,5 @@ public interface AdminRepository extends JpaRepository<Admin, Integer> {
 //	List all admin except logged in
 	@Query("SELECT a FROM Admin a WHERE a.email!= :email")
 	List<Admin> listAllOthers(@Param("email") String email);
+	
 }

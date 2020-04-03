@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ncit.college.domain.Admin;
 import com.ncit.college.domain.DashboardData;
 import com.ncit.college.service.AdminService;
+import com.ncit.college.service.UniversityService;
 
 @RestController
 @CrossOrigin("*")
@@ -24,11 +25,15 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	
+	@Autowired
+	private UniversityService uniService;
+	
 //	get details number in admin dashboard
 	@GetMapping(value="/api/admin/dashboard")
 	public ResponseEntity<?> getDetailsInDasgboard() {
 		DashboardData dsb = new DashboardData();
 		dsb.setAdminCount(adminService.count());
+		dsb.setUniversityCount(uniService.countActiveUni());
 		return ResponseEntity.status(200).body(dsb);
 	}
 
