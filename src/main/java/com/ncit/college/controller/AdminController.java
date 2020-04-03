@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ncit.college.domain.Admin;
+import com.ncit.college.domain.DashboardData;
 import com.ncit.college.service.AdminService;
 
 @RestController
@@ -22,6 +23,14 @@ public class AdminController {
 
 	@Autowired
 	private AdminService adminService;
+	
+//	get details number in admin dashboard
+	@GetMapping(value="/api/admin/dashboard")
+	public ResponseEntity<?> getDetailsInDasgboard() {
+		DashboardData dsb = new DashboardData();
+		dsb.setAdminCount(adminService.count());
+		return ResponseEntity.status(200).body(dsb);
+	}
 
 //	List all admin
 	@GetMapping(value = "/api/admin")
