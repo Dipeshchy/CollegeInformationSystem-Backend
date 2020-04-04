@@ -14,33 +14,38 @@ public class UniversityService {
 
 	@Autowired
 	private UniversityRepository repo;
-	
+
 	public List<University> listAll() {
 		return repo.findAll();
 	}
-	
+
 	public Optional<University> findById(int id) {
 		return repo.findById(id);
 	}
-	
+
 	public void save(University uni) {
 		repo.save(uni);
 	}
-	
+
 	public void delete(int id) {
 		repo.deleteById(id);
 	}
-	
+
+	public void updateUni(University uni) {
+		repo.updateUni(uni.getName(), uni.getLocation(), uni.getEstDate(), uni.getPhone(), uni.getEmail(),
+				uni.getWebsite(), uni.getDescription(), uni.getStatus(), uni.getId());
+	}
+
 	public Long countActiveUni() {
 		return repo.countUniActive();
 	}
-	
+
 	public List<University> listByStatus(int status) {
 		return repo.getUniversityByStatus(status);
 	}
-	
+
 	public void updateUniStatus(int status, int id) {
 		repo.updateUniStatus(status, id);
 	}
-	
+
 }

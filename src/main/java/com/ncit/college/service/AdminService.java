@@ -33,6 +33,11 @@ public class AdminService {
 		return adminRepo.listAllOthers(email);
 	}
 
+//	Update admin
+	public void update(Admin admin) {
+		adminRepo.updateAdmin(admin.getEmail(), admin.getFullName(), admin.getPassword(), admin.getId());
+	}
+
 // To return count of all admin
 	public Long count() {
 		return adminRepo.count();
@@ -53,7 +58,7 @@ public class AdminService {
 		passwordUtil = new PasswordUtil();
 		String email = admin.getEmail();
 //		String password = passwordUtil.getSecurePassword(admin.getPassword());
-		String password  = admin.getPassword();
+		String password = admin.getPassword();
 		return adminRepo.adminLogin(email, password);
 	}
 }

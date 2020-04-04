@@ -30,6 +30,14 @@ public class University {
 	private String phone;
 	@Column(unique = true)
 	private String email;
+	@Column(unique = true)
+	private String website;
+	public String getWebsite() {
+		return website;
+	}
+	public void setWebsite(String website) {
+		this.website = website;
+	}
 	private String description;
 //	 0 = unapproved, 1 = accepted, 2 = rejected
 	private int status;
